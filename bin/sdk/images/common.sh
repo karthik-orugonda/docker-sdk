@@ -199,6 +199,7 @@ function Images::_buildGateway() {
         -t "${gatewayImage}" \
         -f "${DEPLOYMENT_PATH}/images/common/gateway/Dockerfile" \
         --progress="${PROGRESS_TYPE}" \
+        --build-arg "SPRYKER_GATEWAY_IMAGE=${SPRYKER_GATEWAY_IMAGE}" \
         "${DEPLOYMENT_PATH}/context" 1>&2
 }
 
