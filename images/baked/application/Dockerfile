@@ -33,8 +33,11 @@ ARG APPLICATION_ENV
 ARG SPRYKER_DB_ENGINE
 ENV APPLICATION_ENV=${APPLICATION_ENV}
 ENV SPRYKER_DB_ENGINE=${SPRYKER_DB_ENGINE}
+ARG SPRYKER_ACTIVE_STORES
+ENV SPRYKER_ACTIVE_STORES=${SPRYKER_ACTIVE_STORES}
 
 COPY --chown=spryker:spryker team-packages ${srcRoot}/team-packages
+COPY --chown=spryker:spryker bin/* ${srcRoot}/bin/
 COPY --chown=spryker:spryker .gitlab* ${srcRoot}/.gitlab
 COPY --chown=spryker:spryker data ${srcRoot}/data
 RUN vendor/bin/install -r ${SPRYKER_PIPELINE} -s build -s build-production -vvv
