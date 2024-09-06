@@ -82,6 +82,7 @@ function Command::bootstrap() {
         --progress="${PROGRESS_TYPE:-auto}" \
         --build-arg="USER_UID=${USER_FULL_ID%%:*}" \
         --build-arg="SPRYKER_PHP_IMAGE=${SPRYKER_PHP_IMAGE}" \
+        --build-arg="SPRYKER_PHP_VERSION=${SPRYKER_PHP_VERSION}" \
         -q \
         "${SOURCE_DIR}/generator" >/dev/null
     Console::end "[DONE]"
